@@ -11,14 +11,15 @@
 import java.util.Scanner;
 public class Exercise1 {
     public static void main(String[] args) {
-        // create a constructor to initiate
+        //we create 3 vars and initiate them
+        int angle1, angle2, angle3, sumAngle;
+        // create a constructor to initiate the scanner class
         Scanner myObj = new Scanner(System.in);
         System.out.println("Enter the angle 1, angle 2 and angle 3:");
-        // we create 3 vars to store each angle
-        int angle1 = myObj.nextInt();
-        int angle2 = myObj.nextInt();
-        int angle3 = myObj.nextInt();
-        int sumAngle = 0;
+        // we store 3 vars to store each angle
+        angle1 = myObj.nextInt();
+        angle2 = myObj.nextInt();
+        angle3 = myObj.nextInt();
         //The sumAngle is the sum of the 3 var
         sumAngle = angle1 + angle2 +angle3 ;
         if ( sumAngle == 180 ){

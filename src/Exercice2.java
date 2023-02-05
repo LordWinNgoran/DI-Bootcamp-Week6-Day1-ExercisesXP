@@ -9,16 +9,18 @@ import java.util.Scanner;
  */
 public class Exercice2 {
     public static void main(String[] args) {
-        System.out.println("Veuillez entrer le décallage horaire entre votre domicile et votre destination." +
-                "\n(Entrez une valeur négative si la destination est en retard sur le domicile)");
-
+        //We create all vars that are used
+        int TimeDifference, DestinationNight, DestinationJourney;
+        System.out.println("the time difference between your home and where you are going");
+        // store the time difference in var TimeDifference
         Scanner scanner = new Scanner(System.in);
-        int decallageHorraire = scanner.nextInt();
+        TimeDifference = scanner.nextInt();
 
-        int heureDestinationNuit = decallageHorraire < 0 ? 24 + decallageHorraire : decallageHorraire;
-        int heureDestinationJournee = 12 + decallageHorraire;
+        //The ternary Condination use to determine if difference is under 0 or over
+        DestinationNight = TimeDifference < 0 ? 24 + TimeDifference : TimeDifference;
+        DestinationJourney = 12 + TimeDifference;
 
-        System.out.println("Il sera " + heureDestinationJournee + "H à la destination lorsqu'il sera 12h au domicile " +
-                "et il sera " + heureDestinationNuit + "H à la destination lorsqu'il sera 00H au domicile");
+        System.out.println("It will be" + DestinationJourney + "H to your destionation when your home is  12h" +
+                "and it will be " + DestinationNight + "H to your destionation when your home is  00h");
     }
 }

@@ -7,15 +7,6 @@
 import java.util.Scanner;
 
 public class Scrabble {
-    public static void main(String[] args) {
-        Scanner myObj = new Scanner(System.in);
-        String result;
-        System.out.println("Please enter your word : ");
-        String userWord = myObj.nextLine().toUpperCase();
-        char[] charsUserWord = userWord.toCharArray();
-        result = getScore(charsUserWord);
-        System.out.println(result);
-    }
     static char [] onePoints = {'A','E','I', 'O','U', 'L', 'N', 'R','S','T'};
     static char [] twoPoints = {'D','G','I','O','U','L','N','R','S','T'};
     static char [] threePoints = {'B','C','M','P'};
@@ -23,9 +14,28 @@ public class Scrabble {
     int K = 5;
     static char [] eightPoints = {'J', 'X'};
     static char [] tenPoints = {'Q', 'Z'};
+    public static void main(String[] args) {
+        // We create all vars and initiate a class of scanner
+        String result, userWord;
+        char[] charsUserWord;
+        Scanner myObj = new Scanner(System.in);
+        //a user to enter a word
+        System.out.println("Please enter your word : ");
+        //Change the sensitive to uppercase
+        userWord = myObj.nextLine().toUpperCase();
+        //Convert a word to array of char
+        charsUserWord = userWord.toCharArray();
+        //we pass the new array of char to method getScore
+        result = getScore(charsUserWord);
+        // Output the result
+        System.out.println(result);
+    }
 
+
+    // The getScore methode
     public static String getScore(char[] charsUserWord){
         int score = 0;
+        //For each element of array char we pass them to inArray methode to check if it is in and return a number
         for (int i = 0; i < charsUserWord.length; i++) {
             score = score+ inArray(charsUserWord[i],onePoints) + inArray(charsUserWord[i],twoPoints) +
                     inArray(charsUserWord[i],threePoints) +  inArray(charsUserWord[i],fourPoints) +
@@ -37,6 +47,7 @@ public class Scrabble {
 
     public static int inArray(char chars, char[] arrayChar){
         int valueScore=0;
+        //in this loop we navigate in all char of points to see the result
         for(int j = 0;j < arrayChar.length; j++){
             if(arrayChar==onePoints){
                 if(chars == arrayChar[j]){
